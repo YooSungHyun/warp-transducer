@@ -14,7 +14,8 @@ new warp-transducer clone you could build WarpRNNT like this:
 git clone https://github.com/HawkAaron/warp-transducer
 cd warp-transducer
 mkdir build; cd build
-cmake ..
+export CUDA_HOME="/usr/local/cuda"
+cmake -DCUDA_TOOLKIT_ROOT_DIR=$CUDA_HOME ..
 make
 ```
 
@@ -22,10 +23,6 @@ Otherwise, set `WARP_RNNT_PATH` to wherever you have `libwarprnnt.so`
 installed. If you have a GPU, you should also make sure that
 `CUDA_HOME` is set to the home cuda directory (i.e. where
 `include/cuda.h` and `lib/libcudart.so` live). For example:
-
-```
-export CUDA_HOME="/usr/local/cuda"
-```
 
 Now install the bindings: (Please make sure the GCC version >= 4.9)
 ```
